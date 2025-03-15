@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dftwaaioj28ja"]
+
+[ext_resource type="SpriteFrames" uid="uid://c7mvl25tcyvqo" path="res://RoleRes/RoleMovement.tres" id="1_4amq7"]
+[ext_resource type="SpriteFrames" uid="uid://cuc5s7g5lx0tb" path="res://RoleRes/RoleToward.tres" id="2_4amq7"]
+[ext_resource type="Texture2D" uid="uid://lrnm7s3m1qeb" path="res://RoleRes/SightLine.tres" id="3_el2ls"]
+[ext_resource type="Script" uid="uid://358vor5hx3od" path="res://SightRay.gd" id="3_lppwi"]
+
+[node name="Role" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_4amq7")
+animation = &"00_0_degrees"
+
+[node name="RoleToward" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_4amq7")
+animation = &"00"
+
+[node name="SightRay" type="RayCast2D" parent="."]
+enabled = false
+target_position = Vector2(50, 0)
+script = ExtResource("3_lppwi")
+
+[node name="Cursor" type="Sprite2D" parent="SightRay"]
+position = Vector2(280, 0)
+rotation = 1.5708
+texture = ExtResource("3_el2ls")
