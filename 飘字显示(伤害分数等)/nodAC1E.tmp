@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb7lqi02idcqj"]
+
+[ext_resource type="Texture2D" uid="uid://bbd106chonhh2" path="res://icon.svg" id="1_pv01g"]
+[ext_resource type="Script" path="res://DamageEffect.gd" id="2_mtvkb"]
+[ext_resource type="Script" path="res://show_effect_count_one_time.gd" id="2_ufaok"]
+
+[node name="Node2D" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(960, 900)
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_pv01g")
+
+[node name="Marker2D" type="Marker2D" parent="Node2D/Icon"]
+position = Vector2(0, -100)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = -100.0
+
+[node name="UIList" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 129.0
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="UI/UIList"]
+layout_mode = 2
+focus_mode = 0
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "DmgTypeA"
+popup/item_1/text = "DmgTypeB"
+popup/item_1/id = 1
+popup/item_2/text = "DmgTypeC"
+popup/item_2/id = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UIList"]
+layout_mode = 2
+alignment = 1
+
+[node name="AddButton" type="Button" parent="UI/UIList/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "<<"
+
+[node name="LineEdit" type="LineEdit" parent="UI/UIList/HBoxContainer"]
+layout_mode = 2
+text = "1"
+alignment = 1
+editable = false
+script = ExtResource("2_ufaok")
+
+[node name="SubButton" type="Button" parent="UI/UIList/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = ">>
+"
+
+[node name="HitButton" type="Button" parent="UI/UIList"]
+layout_mode = 2
+focus_mode = 0
+text = "Hit!"
+script = ExtResource("2_mtvkb")

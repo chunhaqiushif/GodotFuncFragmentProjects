@@ -1,0 +1,262 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb7lqi02idcqj"]
+
+[ext_resource type="Texture2D" uid="uid://bbd106chonhh2" path="res://icon.svg" id="1_pv01g"]
+[ext_resource type="Script" uid="uid://cnspvodvtnaoi" path="res://HitButton.gd" id="2_bglx3"]
+[ext_resource type="Script" uid="uid://qdw6otqy4ae8" path="res://ParamSet.gd" id="2_ufaok"]
+[ext_resource type="PackedScene" uid="uid://doprtp6831quu" path="res://FloatContext.tscn" id="4_2rbvo"]
+
+[node name="Node2D" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(780, 492)
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_pv01g")
+
+[node name="Marker2D" type="Marker2D" parent="Node2D/Icon"]
+position = Vector2(0, -50)
+
+[node name="DamageList" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 204.0
+offset_top = -156.0
+offset_right = 204.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = 20.0
+grow_vertical = 2
+
+[node name="UIList" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 129.0
+grow_vertical = 2
+
+[node name="Label_Type" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Type-"
+horizontal_alignment = 1
+
+[node name="OpBtn_Type" type="OptionButton" parent="UI/UIList"]
+layout_mode = 2
+focus_mode = 0
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "ONLY_FLOAT"
+popup/item_0/id = 0
+popup/item_1/text = "ZOOM_AND_FLOAT"
+popup/item_1/id = 1
+popup/item_2/text = "COLOR_FLASH_AND_FLOAT"
+popup/item_2/id = 2
+
+[node name="Label_Times" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Show Times-"
+horizontal_alignment = 1
+
+[node name="HBC_Times" type="HBoxContainer" parent="UI/UIList"]
+layout_mode = 2
+alignment = 1
+
+[node name="SubButton" type="Button" parent="UI/UIList/HBC_Times"]
+layout_mode = 2
+focus_mode = 0
+text = "<<"
+
+[node name="LE_Times" type="LineEdit" parent="UI/UIList/HBC_Times" node_paths=PackedStringArray("add_button", "sub_button")]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+editable = false
+script = ExtResource("2_ufaok")
+add_button = NodePath("../AddButton")
+sub_button = NodePath("../SubButton")
+default = 1.0
+param_min = 1.0
+delta = 1.0
+
+[node name="AddButton" type="Button" parent="UI/UIList/HBC_Times"]
+layout_mode = 2
+focus_mode = 0
+text = ">>
+"
+
+[node name="Label_Interval" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Interval-"
+horizontal_alignment = 1
+
+[node name="HBC_Interval" type="HBoxContainer" parent="UI/UIList"]
+layout_mode = 2
+alignment = 1
+
+[node name="SubButton" type="Button" parent="UI/UIList/HBC_Interval"]
+layout_mode = 2
+focus_mode = 0
+text = "<<"
+
+[node name="LE_Interval" type="LineEdit" parent="UI/UIList/HBC_Interval" node_paths=PackedStringArray("add_button", "sub_button")]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+editable = false
+script = ExtResource("2_ufaok")
+add_button = NodePath("../AddButton")
+sub_button = NodePath("../SubButton")
+default = 24.0
+delta = 1.0
+
+[node name="AddButton" type="Button" parent="UI/UIList/HBC_Interval"]
+layout_mode = 2
+focus_mode = 0
+text = ">>
+"
+
+[node name="Label_Delta" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Delta-"
+horizontal_alignment = 1
+
+[node name="HBC_Delta" type="HBoxContainer" parent="UI/UIList"]
+layout_mode = 2
+alignment = 1
+
+[node name="SubButton" type="Button" parent="UI/UIList/HBC_Delta"]
+layout_mode = 2
+focus_mode = 0
+text = "<<"
+
+[node name="LE_Delta" type="LineEdit" parent="UI/UIList/HBC_Delta" node_paths=PackedStringArray("add_button", "sub_button")]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+editable = false
+script = ExtResource("2_ufaok")
+add_button = NodePath("../AddButton")
+sub_button = NodePath("../SubButton")
+default = 0.03
+delta = 0.01
+
+[node name="AddButton" type="Button" parent="UI/UIList/HBC_Delta"]
+layout_mode = 2
+focus_mode = 0
+text = ">>
+"
+
+[node name="Label_Speed" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Speed-"
+horizontal_alignment = 1
+
+[node name="HBC_Speed" type="HBoxContainer" parent="UI/UIList"]
+layout_mode = 2
+alignment = 1
+
+[node name="SubButton" type="Button" parent="UI/UIList/HBC_Speed"]
+layout_mode = 2
+focus_mode = 0
+text = "<<"
+
+[node name="LE_Speed" type="LineEdit" parent="UI/UIList/HBC_Speed" node_paths=PackedStringArray("add_button", "sub_button")]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+editable = false
+script = ExtResource("2_ufaok")
+add_button = NodePath("../AddButton")
+sub_button = NodePath("../SubButton")
+default = 50.0
+delta = 10.0
+
+[node name="AddButton" type="Button" parent="UI/UIList/HBC_Speed"]
+layout_mode = 2
+focus_mode = 0
+text = ">>
+"
+
+[node name="Label_LifeTime" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Life Time-"
+horizontal_alignment = 1
+
+[node name="HBC_LifeTime" type="HBoxContainer" parent="UI/UIList"]
+layout_mode = 2
+alignment = 1
+
+[node name="SubButton" type="Button" parent="UI/UIList/HBC_LifeTime"]
+layout_mode = 2
+focus_mode = 0
+text = "<<"
+
+[node name="LE_LifeTime" type="LineEdit" parent="UI/UIList/HBC_LifeTime" node_paths=PackedStringArray("add_button", "sub_button")]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+editable = false
+script = ExtResource("2_ufaok")
+add_button = NodePath("../AddButton")
+sub_button = NodePath("../SubButton")
+default = 0.8
+param_min = 0.1
+delta = 0.1
+
+[node name="AddButton" type="Button" parent="UI/UIList/HBC_LifeTime"]
+layout_mode = 2
+focus_mode = 0
+text = ">>
+"
+
+[node name="Label_Font" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Font-"
+horizontal_alignment = 1
+
+[node name="OpBtn_Font" type="OptionButton" parent="UI/UIList"]
+layout_mode = 2
+focus_mode = 0
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "Xolonium.ttf"
+popup/item_0/id = 0
+
+[node name="Damage" parent="UI/UIList/OpBtn_Font" instance=ExtResource("4_2rbvo")]
+layout_mode = 1
+offset_left = 126.0
+offset_top = -15.5
+offset_right = 314.0
+offset_bottom = 14.5
+
+[node name="Label_HitButton" type="Label" parent="UI/UIList"]
+layout_mode = 2
+text = "-Hit Button-"
+horizontal_alignment = 1
+
+[node name="HitButton" type="Button" parent="UI/UIList" node_paths=PackedStringArray("damage_option_btn", "damage_count_input", "effect_speed_input", "effect_delta", "effect_life_time_input", "effect_interval", "font_option", "create_to_node", "create_to_mark")]
+layout_mode = 2
+focus_mode = 0
+text = "Hit!"
+script = ExtResource("2_bglx3")
+damage_option_btn = NodePath("../OpBtn_Type")
+damage_count_input = NodePath("../HBC_Times/LE_Times")
+effect_speed_input = NodePath("../HBC_Speed/LE_Speed")
+effect_delta = NodePath("../HBC_Delta/LE_Delta")
+effect_life_time_input = NodePath("../HBC_LifeTime/LE_LifeTime")
+effect_interval = NodePath("../HBC_Interval/LE_Interval")
+font_option = NodePath("../OpBtn_Font")
+create_to_node = NodePath("../../../DamageList")
+create_to_mark = NodePath("../../../Node2D/Icon/Marker2D")

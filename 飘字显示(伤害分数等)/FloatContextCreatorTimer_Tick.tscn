@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://caikkq52rlojh"]
+
+[ext_resource type="Script" uid="uid://c7hb2cve30qjb" path="res://FloatContextCreatorTimer_Tick.gd" id="1_u6tus"]
+
+[node name="FloatContextCreatorTimer_Tick" type="Timer"]
+script = ExtResource("1_u6tus")

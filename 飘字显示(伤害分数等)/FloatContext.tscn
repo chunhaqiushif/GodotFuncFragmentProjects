@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://doprtp6831quu"]
+
+[ext_resource type="FontFile" uid="uid://biag3pba1rldj" path="res://Font/Xolonium.ttf" id="1_a37tf"]
+
+[node name="FloatContext" type="Label"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -6.5
+offset_right = 39.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 15)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_a37tf")
+theme_override_font_sizes/font_size = 24
+text = "+1234567890"
+horizontal_alignment = 1
